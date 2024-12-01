@@ -14,39 +14,41 @@
         }
         .question-container {
             background-color: white;
-            padding: 20px;
-            margin: 30px auto;
-            width: 80%;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 50px;
+            margin: 80px auto;
+            width: 70%;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
             text-align: center;
+            margin-bottom: 80px; /* Increased space between questions */
         }
         .question {
-            font-size: 24px;
-            margin-bottom: 20px;
+            font-size: 32px;
+            margin-bottom: 60px; /* Increased space below the question */
+        }
+        .question-image {
+            margin: 40px 0;
+            max-width: 80%;
+            height: auto;
         }
         .options {
             display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
+            justify-content: space-evenly;
+            margin-top: 60px; /* More space between image and options */
         }
         .option-button {
             background-color: black;
             border: none;
-            padding: 15px 30px;
+            padding: 30px 60px;
             color: white;
-            font-size: 18px;
-            border-radius: 5px;
+            font-size: 24px;
+            border-radius: 10px;
             cursor: pointer;
             width: 45%;
+            transition: background-color 0.3s;
         }
         .option-button:hover {
             background-color: #444;
-        }
-        .question-image {
-            margin: 20px 0;
-            max-width: 80%;
-            height: auto;
         }
     </style>
 </head>
