@@ -10,34 +10,43 @@
             margin: 0;
             padding: 0;
             background-color: #f0f0f0;
+            color: #333;
         }
         .question-container {
             background-color: white;
             padding: 20px;
-            margin: 10px;
+            margin: 30px auto;
+            width: 80%;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
         }
         .question {
-            font-size: 20px;
-            margin-bottom: 10px;
+            font-size: 24px;
+            margin-bottom: 20px;
         }
         .options {
             display: flex;
-            gap: 10px;
             justify-content: space-between;
+            margin-top: 20px;
         }
         .option-button {
-            background-color: #4CAF50;
+            background-color: black;
             border: none;
-            padding: 10px 20px;
+            padding: 15px 30px;
             color: white;
-            font-size: 16px;
+            font-size: 18px;
             border-radius: 5px;
             cursor: pointer;
+            width: 45%;
         }
         .option-button:hover {
-            background-color: #45a049;
+            background-color: #444;
+        }
+        .question-image {
+            margin: 20px 0;
+            max-width: 80%;
+            height: auto;
         }
     </style>
 </head>
@@ -47,20 +56,71 @@
 
 <script>
     const questions = [
-        { question: "Do you prefer coffee or tea?", options: ["Coffee", "Tea"] },
-        { question: "Do you like cats or dogs?", options: ["Cats", "Dogs"] },
-        { question: "Do you prefer summer or winter?", options: ["Summer", "Winter"] },
-        { question: "Would you rather read a book or watch a movie?", options: ["Read a book", "Watch a movie"] },
-        { question: "Do you prefer chocolate or vanilla?", options: ["Chocolate", "Vanilla"] },
-        { question: "Would you prefer to live in space or underwater?", options: ["Space", "Underwater"] },
-        { question: "Do you like playing video games or board games?", options: ["Video games", "Board games"] },
-        { question: "Do you prefer morning or night?", options: ["Morning", "Night"] },
-        { question: "Would you rather be able to fly or be invisible?", options: ["Fly", "Invisible"] },
-        { question: "Do you like going to the beach or hiking in the mountains?", options: ["Beach", "Hiking"] },
-        { question: "Do you prefer city life or countryside life?", options: ["City life", "Countryside life"] },
-        { question: "Would you rather be super strong or super smart?", options: ["Super strong", "Super smart"] },
-        { question: "Do you like sweet or savory foods?", options: ["Sweet", "Savory"] },
-        { question: "Would you prefer to be rich or famous?", options: ["Rich", "Famous"] }
+        { 
+            question: "Do you prefer coffee or tea?", 
+            options: ["Coffee", "Tea"], 
+            image: "https://via.placeholder.com/600x400.png?text=Coffee+or+Tea" 
+        },
+        { 
+            question: "Do you like cats or dogs?", 
+            options: ["Cats", "Dogs"], 
+            image: "https://via.placeholder.com/600x400.png?text=Cats+or+Dogs" 
+        },
+        { 
+            question: "Do you prefer summer or winter?", 
+            options: ["Summer", "Winter"], 
+            image: "https://via.placeholder.com/600x400.png?text=Summer+or+Winter" 
+        },
+        { 
+            question: "Would you rather read a book or watch a movie?", 
+            options: ["Read a book", "Watch a movie"], 
+            image: "https://via.placeholder.com/600x400.png?text=Book+or+Movie" 
+        },
+        { 
+            question: "Do you prefer chocolate or vanilla?", 
+            options: ["Chocolate", "Vanilla"], 
+            image: "https://via.placeholder.com/600x400.png?text=Chocolate+or+Vanilla" 
+        },
+        { 
+            question: "Would you prefer to live in space or underwater?", 
+            options: ["Space", "Underwater"], 
+            image: "https://via.placeholder.com/600x400.png?text=Space+or+Underwater" 
+        },
+        { 
+            question: "Do you like playing video games or board games?", 
+            options: ["Video games", "Board games"], 
+            image: "https://via.placeholder.com/600x400.png?text=Video+or+Board+Games" 
+        },
+        { 
+            question: "Do you prefer morning or night?", 
+            options: ["Morning", "Night"], 
+            image: "https://via.placeholder.com/600x400.png?text=Morning+or+Night" 
+        },
+        { 
+            question: "Would you rather be able to fly or be invisible?", 
+            options: ["Fly", "Invisible"], 
+            image: "https://via.placeholder.com/600x400.png?text=Fly+or+Invisible" 
+        },
+        { 
+            question: "Do you like going to the beach or hiking in the mountains?", 
+            options: ["Beach", "Hiking"], 
+            image: "https://via.placeholder.com/600x400.png?text=Beach+or+Hiking" 
+        },
+        { 
+            question: "Do you prefer city life or countryside life?", 
+            options: ["City life", "Countryside life"], 
+            image: "https://via.placeholder.com/600x400.png?text=City+or+Countryside" 
+        },
+        { 
+            question: "Do you prefer sweet or savory foods?", 
+            options: ["Sweet", "Savory"], 
+            image: "https://via.placeholder.com/600x400.png?text=Sweet+or+Savory" 
+        },
+        { 
+            question: "Would you rather be rich or famous?", 
+            options: ["Rich", "Famous"], 
+            image: "https://via.placeholder.com/600x400.png?text=Rich+or+Famous" 
+        }
     ];
 
     function generateRandomQuestions() {
@@ -81,6 +141,7 @@
             questionDiv.classList.add("question-container");
             questionDiv.innerHTML = `
                 <div class="question">${questionObj.question}</div>
+                <img src="${questionObj.image}" alt="Question Image" class="question-image">
                 <div class="options">
                     <button class="option-button" onclick="answerQuestion(${index}, 0)">${questionObj.options[0]}</button>
                     <button class="option-button" onclick="answerQuestion(${index}, 1)">${questionObj.options[1]}</button>
@@ -91,7 +152,7 @@
     }
 
     function answerQuestion(questionIndex, optionIndex) {
-        // You can handle answers here if you want to track them
+        // Handle answer here if you want to track user answers
         alert(`You chose: ${questions[questionIndex].options[optionIndex]}`);
     }
 
