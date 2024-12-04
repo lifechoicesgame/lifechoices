@@ -20,11 +20,11 @@
             border-radius: 10px;
             box-shadow: 0 2px 15px rgba(0,0,0,0.1);
             text-align: center;
-            margin-bottom: 80px; /* Increased space between questions */
+            margin-bottom: 80px;
         }
         .question {
             font-size: 32px;
-            margin-bottom: 60px; /* Increased space below the question */
+            margin-bottom: 60px;
         }
         .question-image {
             margin: 40px 0;
@@ -34,21 +34,22 @@
         .options {
             display: flex;
             justify-content: space-evenly;
-            margin-top: 60px; /* More space between image and options */
+            margin-top: 60px;
         }
         .option-button {
-            background-color: black;
-            border: none;
+            background-color: white;
+            color: black;
+            border: 2px solid black;
             padding: 30px 60px;
-            color: white;
             font-size: 24px;
             border-radius: 10px;
             cursor: pointer;
             width: 45%;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, color 0.3s;
         }
         .option-button:hover {
-            background-color: #444;
+            background-color: black;
+            color: white;
         }
     </style>
 </head>
@@ -107,21 +108,6 @@
             question: "Do you like going to the beach or hiking in the mountains?", 
             options: ["Beach", "Hiking"], 
             image: "https://via.placeholder.com/600x400.png?text=Beach+or+Hiking" 
-        },
-        { 
-            question: "Do you prefer city life or countryside life?", 
-            options: ["City life", "Countryside life"], 
-            image: "https://via.placeholder.com/600x400.png?text=City+or+Countryside" 
-        },
-        { 
-            question: "Do you prefer sweet or savory foods?", 
-            options: ["Sweet", "Savory"], 
-            image: "https://via.placeholder.com/600x400.png?text=Sweet+or+Savory" 
-        },
-        { 
-            question: "Would you rather be rich or famous?", 
-            options: ["Rich", "Famous"], 
-            image: "https://via.placeholder.com/600x400.png?text=Rich+or+Famous" 
         }
     ];
 
@@ -130,7 +116,7 @@
         for (let i = 0; i < 10; i++) {
             const randomIndex = Math.floor(Math.random() * questions.length);
             randomQuestions.push(questions[randomIndex]);
-            questions.splice(randomIndex, 1); // Remove the selected question to avoid duplicates
+            questions.splice(randomIndex, 1);
         }
         return randomQuestions;
     }
@@ -154,11 +140,9 @@
     }
 
     function answerQuestion(questionIndex, optionIndex) {
-        // Handle answer here if you want to track user answers
         alert(`You chose: ${questions[questionIndex].options[optionIndex]}`);
     }
 
-    // Load and display the random questions on page load
     window.onload = displayQuestions;
 </script>
 
